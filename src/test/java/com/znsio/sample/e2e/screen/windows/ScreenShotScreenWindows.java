@@ -1,14 +1,16 @@
 package com.znsio.sample.e2e.screen.windows;
 
-import com.znsio.sample.e2e.screen.ScreenShotScreen;
 import com.znsio.e2e.tools.Driver;
 import com.znsio.e2e.tools.Visual;
+import com.znsio.sample.e2e.screen.ScreenShotScreen;
+import org.apache.log4j.Logger;
 
 public class ScreenShotScreenWindows
         extends ScreenShotScreen {
     private final Driver driver;
     private final Visual visually;
-    private final String SCREEN_NAME = ScreenShotScreenWindows.class.getSimpleName();
+    private static final String SCREEN_NAME = ScreenShotScreenWindows.class.getSimpleName();
+    private static final Logger LOGGER = Logger.getLogger(SCREEN_NAME);
 
     public ScreenShotScreenWindows(Driver driver, Visual visually) {
         this.driver = driver;
@@ -17,7 +19,7 @@ public class ScreenShotScreenWindows
 
     @Override
     public ScreenShotScreen takeScreenshot() {
-        visually.takeScreenshot(SCREEN_NAME, "Take Screenshot");
+        visually.checkWindow(SCREEN_NAME, "Take Screenshot");
         return this;
     }
 }
