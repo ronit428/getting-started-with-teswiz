@@ -5,6 +5,7 @@ import com.znsio.e2e.entities.Platform;
 import com.znsio.e2e.runner.Runner;
 import com.znsio.e2e.tools.Driver;
 import com.znsio.e2e.tools.Visual;
+import com.znsio.sample.e2e.screen.android.Amazon.SearchResultScreenAndroid;
 import com.znsio.sample.e2e.screen.web.Amazon.SearchResultScreenWeb;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.log4j.Logger;
@@ -28,6 +29,8 @@ public abstract class SearchResultScreen {
         switch(platform) {
             case web:
                 return new SearchResultScreenWeb(driver, visually);
+            case android:
+                return  new SearchResultScreenAndroid(driver,visually);
         }
         throw new NotImplementedException(SCREEN_NAME + " is not implemented in " + Runner.platform);
     }
